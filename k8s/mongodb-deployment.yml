@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: mongodb
-        image: iemafzal/mongodb:v1
+        image: mongo:latest
         ports:
         - containerPort: 27017
         env:
@@ -25,8 +25,10 @@ spec:
           value: admin
         volumeMounts:
         - name: mongo-data
-          mountPath: /data/db
+          mountPath: /data
       volumes:
       - name: mongo-data
         persistentVolumeClaim:
-          claimName: mongo-pvc
+          claimName: mongodb-pvc
+
+        
